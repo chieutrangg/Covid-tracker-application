@@ -1,14 +1,16 @@
 import './App.css';
-import Card from './components/Cards/Card';
+import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 import styles from './App.module.css';
-import {fetchData} from './api'
+import {useFetchData} from './api'
 
 function App() {
+  const [data, error, loading] = useFetchData();
+  // console.log(data);
   return (
     <div className={styles.container}>
-      <Card />
+      <Cards />
       <CountryPicker />
       <Chart />
     </div>
