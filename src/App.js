@@ -7,10 +7,10 @@ import {useFetchData} from './api'
 
 function App() {
   const [data, error, loading] = useFetchData();
-  // console.log(data);
+  console.log(data);
   return (
     <div className={styles.container}>
-      <Cards />
+      <Cards data={data}/>
       <CountryPicker />
       <Chart />
     </div>

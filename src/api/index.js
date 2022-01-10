@@ -11,7 +11,7 @@ export const useFetchData = () => {
         async function getData() {
             try{
                 const respone = await axios.get(url);
-                setData(respone);
+                setData(respone.data);
                 setLoading(false);
             } catch (error) {
                 setError(error);
@@ -19,7 +19,7 @@ export const useFetchData = () => {
             }
         }
         getData();
-    })
+    }, [])
     return [data, error, loading];
 }
 
