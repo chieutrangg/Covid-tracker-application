@@ -3,11 +3,12 @@ import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 import styles from './App.module.css';
-import {useFetchData} from './api'
+import {useDailyData, useFetchData} from './api'
+
 
 function App() {
   const [data, error, loading] = useFetchData();
-  console.log(data);
+  
   return (
     <div className={styles.container}>
       <Cards data={data}/>
