@@ -12,22 +12,28 @@ export const useFetchData = (country) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const getData = async() => {
+        
+        try{
+            const respone = await axios.get(changeableUrl);
+            setData(respone.data);
+            console.log(respone.data)
+            setLoading(false);
+        } catch (error) {
+            console.log('error')
+            setError(error);
+            setLoading(false);     
+        }
+    }
     
     useEffect(() =>{
-        async function getData() {
-            try{
-                const respone = await axios.get(changeableUrl);
-                setData(respone.data);
-                setLoading(false);
-                
-            } catch (error) {
-                setError(error);
-                setLoading(false);     
-            }
-        }
+        
+        
         getData();
-    }, [])
+    }, [country])
     return [data, error, loading];
+    
 }
 
 export const fetchDailyData = async () =>{
